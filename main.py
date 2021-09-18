@@ -251,9 +251,9 @@ class Game:
         if player is None:
             player = ki_player
         if self.current_winner == -1*(player):
-            return {"position": None, "score": 1 if (-1*(player)) == human_player else -1}
+            return {"position": None, "score": 1 if (-1*(player)) == human_player else -1} # score set to -1 if ki (minimizer) won and 1 if human (maximizer) won
         elif self.current_winner == 0:
-            return {"position": None, "score": 0}
+            return {"position": None, "score": 0} 
         if player == ki_player:
             best_move = {"position": None, "score": math.inf}
         else:
@@ -263,7 +263,7 @@ class Game:
         for choice in available_choices:
             chosen_field = free[choice]
             self.minimax_move(chosen_field, player)
-            simulation_score = self.minimax(-1*(player))
+            simulation_score = self.minimax(-1*(player)) # recursive call to play through all future moves
             self.logical_board[chosen_field[0]][chosen_field[1]] = 0
             self.current_winner = None
             simulation_score["position"] = chosen_field
