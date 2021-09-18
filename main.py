@@ -34,7 +34,7 @@ class Game:
         self.logical_board = np.array([[0,0,0],[0,0,0],[0,0,0]])
         self.window.bind('<Button-1>', self.player_clicks)
         self.win_cond = [{(0,0), (0,1), (0,2)}, {(1,0), (1,1), (1,2)}, {(2,0), (2,1), (2,2)}, {(0,0), (1,0), (2,0)}, 
-                        {(0,0), (1,0), (2,0)}, {(2,0), (2,1), (2,2)}, {(0,0), (1,1), (2,2)}, {(0,2), (1,1), (2,0)}]
+                        {(0,1), (1,1), (2,1)}, {(0,2), (1,2), (2,2)}, {(0,0), (1,1), (2,2)}, {(0,2), (1,1), (2,0)}]
         self.player = Player("Human")
         self.ki = KI("KI")
         self.initialize_board()
@@ -53,6 +53,8 @@ class Game:
 
     
     def restart(self):
+        self.canvas.delete("all")
+        self.logical_board = np.array([[0,0,0],[0,0,0],[0,0,0]])
         self.initialize_board()
         
     def update_score(self):
@@ -61,7 +63,7 @@ class Game:
         id = self.canvas.create_text((400, 650), font="bold 15", fill='#880808', text="Quit")
         self.canvas.tag_bind(id, "<Button-1>", lambda x: quit())
         restart = self.canvas.create_text((400, 675), font="bold 15", fill='#880808', text="Restart the game or play another round")
-        self.canvas.tag_bind(restart, "<Button-1>", self.restart())
+        self.canvas.tag_bind(restart, "<Button-1>", lambda x: self.restart())
 
     def convert_board_to_logical(self, board_pos):
         x_coord = int(board_pos[0] / 200)
@@ -148,10 +150,6 @@ class Game:
             self.player.add_score()
             self.ki.add_score()
             self.update_score()
-
-
-    def rematch(self):
-        pass 
 
 
 def main():
