@@ -1,7 +1,6 @@
 from tkinter import Canvas
 import numpy as np
 import tkinter as tk
-import random
 import tkinter.font as TkFont
 import math
 
@@ -140,7 +139,9 @@ class Game:
                     self.computer_plays()
             
     def computer_plays(self):
-        choice = self.minimax()["position"]
+        choice = self.minimax()
+        print(choice)
+        choice = choice["position"]
         board_pos = self.convert_logical_to_board(choice)
         self.logical_board[choice[0]][choice[1]] = -1
         self.draw_o(board_pos)
@@ -160,6 +161,8 @@ class Game:
             player = ki_player
         if self.current_winner == -1*(player):
             return {"position": None, "score": 1 if (-1*(player)) == human_player else -1}
+        elif self.current_winner == 0:
+            return {"position": None, "score": 0}
         if player == ki_player:
             best_move = {"position": None, "score": math.inf}
         else:
@@ -173,11 +176,11 @@ class Game:
             self.logical_board[chosen_field[0]][chosen_field[1]] = 0
             self.current_winner = None
             simulation_score["position"] = chosen_field
-            if player == ki_player:
-                if simulation_score["score"] < best_move["score"]:
+            if player == human_player:
+                if simulation_score["score"] > best_move["score"]:
                     best_move = simulation_score
             else:
-                if simulation_score["score"] > best_move["score"]:
+                if simulation_score["score"] < best_move["score"]:
                     best_move = simulation_score
         return best_move
 
