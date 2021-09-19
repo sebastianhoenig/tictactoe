@@ -4,7 +4,8 @@ This repository contains a python based interactive Tic-Tac-Toe game to be playe
 
 ---
 
-![tictactoe](https://user-images.githubusercontent.com/90109108/133911461-75468323-97f5-465b-a3d2-bcb8b78c0ffe.gif&s=200)
+![tictactoe](https://user-images.githubusercontent.com/90109108/133911461-75468323-97f5-465b-a3d2-bcb8b78c0ffe.gif)
+<img width="200" alt="portfolio_view" src="https://user-images.githubusercontent.com/90109108/133911461-75468323-97f5-465b-a3d2-bcb8b78c0ffe.gif">
 
 
 ---
