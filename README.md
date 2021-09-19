@@ -4,12 +4,11 @@ This repository contains a python based interactive Tic-Tac-Toe game to be playe
 
 ---
 
-![tictactoe](https://user-images.githubusercontent.com/90109108/133911461-75468323-97f5-465b-a3d2-bcb8b78c0ffe.gif)
+![tictactoe](https://user-images.githubusercontent.com/90109108/133911461-75468323-97f5-465b-a3d2-bcb8b78c0ffe.gifs=200)
 
 
 ---
 
 ## License & copyright
 
-@ Sebastian Hönig, student at Goethe University Frankfurt
-s5531190@stud.uni-frankfurt.de
+@ Sebastian Hönig, student at Goethe University Frankfurt - s5531190@stud.uni-frankfurt.de
